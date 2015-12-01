@@ -1,7 +1,6 @@
 .keys {
   height: 90px;
   width: 90px;
-/*  border: 1px solid black;*/
   text-align: center;
   background-image: url("http://static3.bigstockphoto.com/thumbs/9/6/1/small2/16955483.jpg");
   background-size: cover;
@@ -45,7 +44,12 @@
   background-size: 100%;
   position: relative;
 }
-
+#counter {
+  color: green;
+  text-align: center;
+  font-size: 50px;
+  z-index: 1;
+}
 
 
 

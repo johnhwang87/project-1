@@ -1,8 +1,26 @@
 $(document).ready(function(){
 
-setInterval(function() {
+var counter = 61;
+var begin = setInterval(function(){
+    startTime()
+}, 1000);
+function startTime() {
+    if(counter ===0){
+        clearInterval(begin);
+        clearInterval(gameOver);
+    }
+    else {
+        counter--;
+    }
+    document.getElementById('counter').innerHTML = counter;
+}
+
+
+
+var gameOver = setInterval(function() {
+
     $('#canvas').append("<div class='bug'></div>")
-}, 2000);
+}, 500);
 
 
 
@@ -42,7 +60,7 @@ $('.bug').each(function() {
 moveRandom($(this));
 });
 
-}, 1000);
+}, 100);
 
 });
 
