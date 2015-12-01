@@ -9,6 +9,7 @@ function startTime() {
     if(counter ===0){
         clearInterval(begin);
         clearInterval(gameOver);
+        clearInterval(gameOver1);
     }
     else {
         counter--;
@@ -17,17 +18,21 @@ function startTime() {
 }
 
 //below code starts the game with 60 bugs
- for(var i=0; i<61; i++) {
+ for(var i=0; i<81; i++) {
            $('#canvas').append("<div class='bug'></div>")
     }
 
 
 
 
-//below code spawns a bug every .5 seconds
+//below code spawns a bug every .2 seconds
 var gameOver = setInterval(function() {
     $('#canvas').append("<div class='bug'></div>")
-}, 500);
+}, 200);
+
+var gameOver1 = setInterval(function () {
+    $('#canvas').append("<div class='bug2'></div>")
+}, 5000);
 
 //below code gets random coordinates
 function randomFromTo(from, to){
@@ -71,36 +76,19 @@ setInterval(function (){
 }
 
 $('.bug').each(function() {
-moveRandom($(this));
+    moveRandom($(this));
 });
-
+$('.bug2').each(function () {
+    moveRandom($(this));
+});
 }, 100);
-
-
-});
-
-
-
 
 // event.target?!?!?
 
 
-// $(document).keydown(function(e) {
-//     if(e.keyCode === 81){
-//     $("#q").css("color", "red")
-//     }
-// });
-// $(document).keyup(function(e) {
-//     if(e.keyCode === 81){
-//     $("#q").css("color", "white")
-//     }
-// });
+});
 
-// below code trying to make a loop for each charCode, and then CSS it to change key up and key down
-
-
-
-// WHAT THE f get this damn loop to work
+//below codes detect keyboard input
 function keyInput1 () {
     $(document).keydown(function(h) {
         if (h.keyCode > 64 && h.keyCode < 91) {
