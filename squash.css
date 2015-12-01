@@ -16,7 +16,7 @@
 .bug{
   width: 50px;
   height: 50px;
-
+  background-size: 100%;
   background-image: url(http://pldh.net/media/pokemon/gen4/hgss/010.png);
   position: absolute;
   z-index: 1;
@@ -35,17 +35,6 @@
   left: 140px;
   top: 270px;
   z-index: 0;
-
-}
-
-
-.a {
-width: 70px;
-height: 40px;
-background-image: url(http://www.clipartbest.com/cliparts/9ip/bxp/9ipbxpX6T.jpeg);
-background-size: cover;
-position:fixed;
-display: block;
 
 }
 
