@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-var counter = 61;
+//below code is for timer and end spawn time
+var counter = 64;
 var begin = setInterval(function(){
     startTime()
 }, 1000);
@@ -15,18 +16,24 @@ function startTime() {
     document.getElementById('counter').innerHTML = counter;
 }
 
+//below code starts the game with 60 bugs
+ for(var i=0; i<61; i++) {
+           $('#canvas').append("<div class='bug'></div>")
+    }
 
 
+
+
+//below code spawns a bug every .5 seconds
 var gameOver = setInterval(function() {
-
     $('#canvas').append("<div class='bug'></div>")
 }, 500);
 
-
-
+//below code gets random coordinates
 function randomFromTo(from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
+
 
 setInterval(function (){
     function moveRandom(obj) {
@@ -51,7 +58,7 @@ setInterval(function (){
     obj.animate({
         top: newY,
         left: newX
-        }, 3000, function() {
+        }, 5000, function() {
   moveRandom(obj);
     });
 }
