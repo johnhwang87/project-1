@@ -35,10 +35,17 @@ function randomFromTo(from, to){
 }
 
 
+//bug squash mechanic
+// var squash = function () {
+//     $('.bug')collision('.keys')
+//     if('')
+//$('.bug').css("background", "url(http://4.bp.blogspot.com/-jTCP2eKcFf8/UPg04K-xW_I/AAAAAAAAX-s/DPUElojOXzA/s400/red%2Bsplat.png)"")
+// }
+
 setInterval(function (){
     function moveRandom(obj) {
-    // get container position and size
 
+    // get container position and size
     var keyboardPos = $('#keyboard').offset();
     var keyboardHeight = $('#keyboard').height();
     var keyboardWidth = $('#keyboard').width();
@@ -69,12 +76,13 @@ moveRandom($(this));
 
 }, 100);
 
+
 });
 
 
 
 
-
+// event.target?!?!?
 
 
 // $(document).keydown(function(e) {
@@ -93,18 +101,22 @@ moveRandom($(this));
 
 
 // WHAT THE f get this damn loop to work
-// function keyInput () {
-//     for(i=65; i<91; i++) {
-//         var e = String.fromCharCode(i).toLowerCase()
-//         $(document).keydown(function(e) {
-//         if(e.keyCode === (i)) {
-//         $("#"+e).css("color", "red")
-//             }
-//         });
-//     }
+function keyInput1 () {
+    $(document).keydown(function(h) {
+        if (h.keyCode > 64 && h.keyCode < 91) {
+            var e = String.fromCharCode(h.keyCode).toLowerCase()
+            $("#"+e).css("color", "red")
+        }
+    });
+}
+keyInput1();
 
-// keyInput();
-// }
-
-
-// });
+function keyInput2 () {
+    $(document).keyup(function(j) {
+        if (j.keyCode > 64 && j.keyCode < 91) {
+            var f = String.fromCharCode(j.keyCode).toLowerCase()
+            $("#"+f).css("color", "white")
+        }
+    });
+}
+keyInput2();
