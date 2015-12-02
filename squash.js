@@ -17,7 +17,7 @@ function startTime() {
     document.getElementById('counter').innerHTML = counter;
 }
 
-//below code starts the game with 60 bugs
+//below code starts the game with 80 bugs
  for(var i=0; i<81; i++) {
            $('#canvas').append("<div class='bug'></div>")
     }
@@ -39,13 +39,6 @@ function randomFromTo(from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
-
-//bug squash mechanic
-// var squash = function () {
-//     $('.bug')collision('.keys')
-//     if('')
-//$('.bug').css("background", "url(http://4.bp.blogspot.com/-jTCP2eKcFf8/UPg04K-xW_I/AAAAAAAAX-s/DPUElojOXzA/s400/red%2Bsplat.png)"")
-// }
 
 setInterval(function (){
     function moveRandom(obj) {
@@ -83,8 +76,6 @@ $('.bug2').each(function () {
 });
 }, 100);
 
-// event.target?!?!?
-
 
 });
 
@@ -94,10 +85,58 @@ function keyInput1 () {
         if (h.keyCode > 64 && h.keyCode < 91) {
             var e = String.fromCharCode(h.keyCode).toLowerCase()
             $("#"+e).css("color", "red")
+            // var top = $("#"+e).position().top
+            // var bottom = top + 90
+            // var left = $("#"+e).position().left
+            // var right = left + 90
+//below shows the position of each key that is pressed.
+            // console.log(top)
+            // console.log(bottom)
+            // console.log(left)
+            // console.log(right)
+
+            // var bugPosX = $('.bug').each(function (){
+            //     if ($(this).offset().left > key.offset().left) {};
+            //     return ($(this)).offset().left
+            // });
+
+            // var bugPosY = $('.bug').each.offset().top
+            // console.log(bugPosX);
+            // console.log(bugPosY);
+
+            // console.log("keydown called");
         }
-    });
+
+       function squash () {
+            var x = $("#"+e).offset().left
+            var y = $("#"+e).offset().top
+            var width = $("#"+e).width()
+            var height = $("#"+e).height()
+            $('.bug').each(function(index, s){
+                if(s.offsetLeft > x && s.offsetLeft < x+width){
+                    if(s.offsetTop > y && s.offsetTop < y+height){
+                        $($(this)).addClass('kill');
+                        $($(this)).removeClass('bug');
+                }
+            }
+            });
+
+
+                    // $('.bug').each(function (){
+                    // $('.bug').addClass('kill').removeClass('bug');
+                    // });
+            // var bugPosY = $('.bug').offset().top
+            // if(width > bugPosX > x && height > bugPosY > y)
+            //     });
+
+}
+
+        squash();
+        });
+
 }
 keyInput1();
+
 
 function keyInput2 () {
     $(document).keyup(function(j) {
@@ -105,6 +144,11 @@ function keyInput2 () {
             var f = String.fromCharCode(j.keyCode).toLowerCase()
             $("#"+f).css("color", "white")
         }
+
     });
+
 }
+
 keyInput2();
+
+

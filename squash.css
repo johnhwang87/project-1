@@ -20,11 +20,19 @@
   position: absolute;
   z-index: 1;
 }
-.bug2{
+.bug2 {
   width: 50px;
   height: 50px;
   background-size: 100%;
   background-image: url(http://pldh.net/media/pokemon/gen4/hgss/012.png);
+  position: absolute;
+  z-index: 1;
+}
+.kill {
+  width: 50px;
+  height: 50px;
+  background-size: 100%;
+  background-image: url(http://designertuts.com/assets/images/tuts/2007/07/splat.png);
   position: absolute;
   z-index: 1;
 }
