@@ -13,8 +13,8 @@
   line-height: 70px;
 }
 .bug{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-size: 100%;
   background-image: url(http://pldh.net/media/pokemon/gen4/hgss/010.png);
   position: absolute;
@@ -26,15 +26,23 @@
   background-size: 100%;
   background-image: url(http://pldh.net/media/pokemon/gen4/hgss/012.png);
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 }
 .kill {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-size: 100%;
   background-image: url(http://designertuts.com/assets/images/tuts/2007/07/splat.png);
   position: absolute;
   z-index: 1;
+}
+.kill2 {
+  width: 40px;
+  height: 40px;
+  background-size: 100%;
+  background-image: url(http://www.artistick.com/media/wysiwyg/620-crazy-paint.png);
+  position: absolute;
+  z-index: 2;
 }
 
 #keyboard {
@@ -59,6 +67,14 @@
   background-image: url(http://epsolutions.centraldesktop.com/referralinformation/media/Desktop%20Template.jpg);
   background-size: 100%;
   position: relative;
+}
+#spawner {
+  position: absolute;
+  float: left;
+  border: 1px solid black;
+  height: 5px;
+  width: 5px;
+z-index: 1;
 }
 #counter {
   color: green;

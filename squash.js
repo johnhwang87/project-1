@@ -28,7 +28,8 @@ function startTime() {
 //below code spawns a bug every .2 seconds
 var gameOver = setInterval(function() {
     $('#canvas').append("<div class='bug'></div>")
-}, 200);
+    $('#spawner').append("<div class='bug'></div>")
+}, 400);
 
 var gameOver1 = setInterval(function () {
     $('#canvas').append("<div class='bug2'></div>")
@@ -63,8 +64,9 @@ setInterval(function (){
     obj.animate({
         top: newY,
         left: newX
-        }, 5000, function() {
+        }, 3000, function() {
   moveRandom(obj);
+
     });
 }
 
@@ -74,6 +76,7 @@ $('.bug').each(function() {
 $('.bug2').each(function () {
     moveRandom($(this));
 });
+
 }, 100);
 
 
@@ -85,53 +88,8 @@ function keyInput1 () {
         if (h.keyCode > 64 && h.keyCode < 91) {
             var e = String.fromCharCode(h.keyCode).toLowerCase()
             $("#"+e).css("color", "red")
-            // var top = $("#"+e).position().top
-            // var bottom = top + 90
-            // var left = $("#"+e).position().left
-            // var right = left + 90
-//below shows the position of each key that is pressed.
-            // console.log(top)
-            // console.log(bottom)
-            // console.log(left)
-            // console.log(right)
-
-            // var bugPosX = $('.bug').each(function (){
-            //     if ($(this).offset().left > key.offset().left) {};
-            //     return ($(this)).offset().left
-            // });
-
-            // var bugPosY = $('.bug').each.offset().top
-            // console.log(bugPosX);
-            // console.log(bugPosY);
-
-            // console.log("keydown called");
         }
 
-       function squash () {
-            var x = $("#"+e).offset().left
-            var y = $("#"+e).offset().top
-            var width = $("#"+e).width()
-            var height = $("#"+e).height()
-            $('.bug').each(function(index, s){
-                if(s.offsetLeft > x && s.offsetLeft < x+width){
-                    if(s.offsetTop > y && s.offsetTop < y+height){
-                        $($(this)).addClass('kill');
-                        $($(this)).removeClass('bug');
-                }
-            }
-            });
-
-
-                    // $('.bug').each(function (){
-                    // $('.bug').addClass('kill').removeClass('bug');
-                    // });
-            // var bugPosY = $('.bug').offset().top
-            // if(width > bugPosX > x && height > bugPosY > y)
-            //     });
-
-}
-
-        squash();
         });
 
 }
@@ -144,6 +102,31 @@ function keyInput2 () {
             var f = String.fromCharCode(j.keyCode).toLowerCase()
             $("#"+f).css("color", "white")
         }
+       function squash () {
+            var x = $("#"+f).offset().left -10;
+            var y = $("#"+f).offset().top -10;
+            var width = $("#"+f).width() -20;
+            var height = $("#"+f).height() -20;
+            $('.bug').each(function(index, s){
+                if(s.offsetLeft > x && s.offsetLeft < x+width){
+                    if(s.offsetTop > y && s.offsetTop < y+height){
+                    $($(this)).remove();
+                    $('body').append("<div class='kill' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
+             }
+        }
+    });
+            $('.bug2').each(function(index, s){
+                if(s.offsetLeft > x && s.offsetLeft < x+width){
+                    if(s.offsetTop > y && s.offsetTop < y+height){
+                    $($(this)).remove();
+                    $('body').append("<div class='kill2' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
+             }
+        }
+    });
+
+}
+
+        squash();
 
     });
 
