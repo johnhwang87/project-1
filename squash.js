@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 //below code is for timer and end spawn time
 var counter = 64;
 var begin = setInterval(function(){
@@ -22,13 +21,10 @@ function startTime() {
            $('#canvas').append("<div class='bug'></div>")
     }
 
-
-
-
-//below code spawns a bug every .2 seconds
+//below code spawns a bug every .4 seconds
 var gameOver = setInterval(function() {
     $('#canvas').append("<div class='bug'></div>")
-    $('#spawner').append("<div class='bug'></div>")
+    // $('#spawner').append("<div class='bug'></div>")
 }, 400);
 
 var gameOver1 = setInterval(function () {
@@ -64,7 +60,7 @@ setInterval(function (){
     obj.animate({
         top: newY,
         left: newX
-        }, 3000, function() {
+        }, 4000, function() {
   moveRandom(obj);
 
     });
@@ -100,7 +96,7 @@ function keyInput2 () {
     $(document).keyup(function(j) {
         if (j.keyCode > 64 && j.keyCode < 91) {
             var f = String.fromCharCode(j.keyCode).toLowerCase()
-            $("#"+f).css("color", "white")
+            $("#"+f).css("color", "gray")
         }
        function squash () {
             var x = $("#"+f).offset().left -10;
@@ -111,27 +107,51 @@ function keyInput2 () {
                 if(s.offsetLeft > x && s.offsetLeft < x+width){
                     if(s.offsetTop > y && s.offsetTop < y+height){
                     $($(this)).remove();
-                    $('body').append("<div class='kill' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
+$('body').append("<div class='kill' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
+$('body').append("<div class='plus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>+10</p></div>");
+ $('.plus').fadeOut(500, function () {
+
+                    });
+                    // $('.kill, .kill2').fadeOut(7000, function() {
+
+                    // });
+                    }
              }
-        }
     });
             $('.bug2').each(function(index, s){
                 if(s.offsetLeft > x && s.offsetLeft < x+width){
                     if(s.offsetTop > y && s.offsetTop < y+height){
                     $($(this)).remove();
                     $('body').append("<div class='kill2' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
+                    $('body').append("<div class='minus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>-200</p></div>");
+                    $('.minus').fadeOut(500, function () {
+
+                    });
              }
         }
     });
-
 }
 
-        squash();
+squash();
 
     });
-
 }
 
 keyInput2();
+
+// add a minus sign when butterfly is killed
+$(document).keydown(function() {
+    if (event.keyCode === 16){
+        $('.kill, .kill2').fadeOut(7000, function (){
+
+        });
+
+    }
+});
+
+
+//
+
+
 
 
