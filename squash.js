@@ -1,6 +1,15 @@
 $(document).ready(function(){
-//below code is for timer and end spawn time
-var counter = 64;
+
+$('#canvas').hide();
+$('#startscreen').click(function (){
+    $($(this)).hide();
+    $('#canvas').show('fast', function() {
+//below code starts the game with 80 bugs
+ for(var i=0; i<81; i++) {
+           $('#canvas').append("<div class='bug'></div>")
+    }
+
+var counter = 60;
 var begin = setInterval(function(){
     startTime();
 }, 1000);
@@ -9,46 +18,42 @@ function startTime() {
         clearInterval(begin);
         clearInterval(gameOver);
         clearInterval(gameOver1);
+        alert("I promise you I am not a virus. Here is your final score you sadist: " + scoreboard);
+        reset();
     }
     else {
         counter--;
     }
     document.getElementById('counter').innerHTML = "time:" +counter;
 }
-
-//
-var scoreboard = 0;
-var start = setInterval(function(){
-    startScore();
-    }, 100)
-function startScore() {
-
-    document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
-}
-//
-
-
-
-//below code starts the game with 80 bugs
- for(var i=0; i<81; i++) {
-           $('#canvas').append("<div class='bug'></div>")
-    }
-
+    });
 //below code spawns a bug every .4 seconds
 var gameOver = setInterval(function() {
     $('#canvas').append("<div class='bug'></div>")
-    // $('#spawner').append("<div class='bug'></div>")
 }, 400);
 
 var gameOver1 = setInterval(function () {
     $('#canvas').append("<div class='bug2'></div>")
 }, 5000);
+});
+//below code is for timer and end spawn time
+
+//
+scoreboard = 0;
+function startScore() {
+    document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
+}
+var start = setInterval(function(){
+    startScore();
+    }, 100)
+//
+
+
 
 //below code gets random coordinates
 function randomFromTo(from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
-
 
 setInterval(function (){
     function moveRandom(obj) {
@@ -119,6 +124,8 @@ function keyInput2 () {
                     if(s.offsetTop > y && s.offsetTop < y+height){
 
                         scoreboard +=10;
+                        document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
+
 
                     $($(this)).remove();
 
@@ -133,6 +140,11 @@ function keyInput2 () {
             $('.bug2').each(function(index, s){
                 if(s.offsetLeft > x && s.offsetLeft < x+width){
                     if(s.offsetTop > y && s.offsetTop < y+height){
+
+                        scoreboard -=200;
+                        document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
+
+
                     $($(this)).remove();
                     $('body').append("<div class='kill2' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
                     $('body').append("<div class='minus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>-200</p></div>");
@@ -154,16 +166,13 @@ keyInput2();
 // add a minus sign when butterfly is killed
 $(document).keydown(function() {
     if (event.keyCode === 16){
-        $('.kill, .kill2').fadeOut(7000, function (){
-
-
-
-
+        $('.kill, .kill2').fadeOut(5000, function (){
         });
      }
 });
+// below code sets shift key to flash different words
 setInterval(function() {
-    $('p').fadeOut(500, function() {
+    $('#shiftkey').fadeOut(500, function() {
         var $this = $(this);
         $this.text($this.text() == '(bloodwiper)' ? 'Shift' : '(bloodwiper)');
         $this.toggleClass();

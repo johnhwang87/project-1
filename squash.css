@@ -25,11 +25,9 @@
   border-radius: 10px;
   line-height: 70px;
 }
-p {
+#shiftkey {
   color: red;
-  font-size: 20px;
   font-family: courier;
-  text-align: center;
   margin: 2px;
 }
 .bug{
@@ -85,25 +83,17 @@ p {
   background-size: 100%;
   position: relative;
 }
-#spawner {
-  left: 1000px;
-  position: absolute;
-  border: 1px solid black;
-  height: 5px;
-  width: 5px;
-  z-index: 1;
-}
 #counter {
   color: green;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   z-index: 1;
   font-family: Courier;
 }
 #scoreboard {
   color: green;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   z-index: 1;
   font-family: Courier;
 }
@@ -127,6 +117,33 @@ p {
   width: 100px;
   text-align: center;
   z-index: 4;
+}
+#startscreen {
+  background: yellow;
+  height: 650px;
+  width: 1200px;
+  position: relative;
+  padding: 5px 40px 0px 40px;
+  border-radius: 30px;
+}
+.start, li {
+  font-family: Courier;
+  font-size: 27px;
+  font-color: black;
+}
+.start1 {
+  font-family: Courier;
+  font-weight: bold;
+  font-size: 70px;
+  color: red;
+}
+#pic {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  right: -25px;
+  bottom: 10px;
+  background-image: url(http://www.misskatecuttables.com/uploads/shopping_cart/7377/large_cute-bug.png);
 }
 
 
