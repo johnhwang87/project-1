@@ -85,9 +85,7 @@ function keyInput1 () {
             var e = String.fromCharCode(h.keyCode).toLowerCase()
             $("#"+e).css("color", "red")
         }
-
-        });
-
+    });
 }
 keyInput1();
 
@@ -107,15 +105,12 @@ function keyInput2 () {
                 if(s.offsetLeft > x && s.offsetLeft < x+width){
                     if(s.offsetTop > y && s.offsetTop < y+height){
                     $($(this)).remove();
-$('body').append("<div class='kill' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
-$('body').append("<div class='plus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>+10</p></div>");
- $('.plus').fadeOut(500, function () {
-
+                        $('body').append("<div class='kill' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
+                        $('body').append("<div class='plus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>+10</p></div>");
+                        $('.plus').animate({'marginTop': "-=40px"});
+                        $('.plus').fadeOut(500, function () {
                     });
-                    // $('.kill, .kill2').fadeOut(7000, function() {
-
-                    // });
-                    }
+                 }
              }
     });
             $('.bug2').each(function(index, s){
@@ -124,11 +119,11 @@ $('body').append("<div class='plus' style='top: " + s.style.top + "; left: " + s
                     $($(this)).remove();
                     $('body').append("<div class='kill2' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
                     $('body').append("<div class='minus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>-200</p></div>");
-                    $('.minus').fadeOut(500, function () {
-
+                    $('.minus').animate({'marginTop': "-=40px"});
+                    $('.minus').fadeOut(3000, function () {
                     });
              }
-        }
+         }
     });
 }
 
@@ -145,13 +140,7 @@ $(document).keydown(function() {
         $('.kill, .kill2').fadeOut(7000, function (){
 
         });
-
-    }
+     }
 });
-
-
-//
-
-
 
 
