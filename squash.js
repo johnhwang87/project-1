@@ -2,7 +2,7 @@ $(document).ready(function(){
 //below code is for timer and end spawn time
 var counter = 64;
 var begin = setInterval(function(){
-    startTime()
+    startTime();
 }, 1000);
 function startTime() {
     if(counter ===0){
@@ -13,8 +13,21 @@ function startTime() {
     else {
         counter--;
     }
-    document.getElementById('counter').innerHTML = counter;
+    document.getElementById('counter').innerHTML = "time:" +counter;
 }
+
+//
+var scoreboard = 0;
+var start = setInterval(function(){
+    startScore();
+    }, 100)
+function startScore() {
+
+    document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
+}
+//
+
+
 
 //below code starts the game with 80 bugs
  for(var i=0; i<81; i++) {
@@ -104,7 +117,11 @@ function keyInput2 () {
             $('.bug').each(function(index, s){
                 if(s.offsetLeft > x && s.offsetLeft < x+width){
                     if(s.offsetTop > y && s.offsetTop < y+height){
+
+                        scoreboard +=10;
+
                     $($(this)).remove();
+
                         $('body').append("<div class='kill' style='top: " + s.style.top + "; left: " + s.style.left + "'></div>");
                         $('body').append("<div class='plus' style='top: " + s.style.top + "; left: " + s.style.left + "'><p>+10</p></div>");
                         $('.plus').animate({'marginTop': "-=40px"});
@@ -139,8 +156,19 @@ $(document).keydown(function() {
     if (event.keyCode === 16){
         $('.kill, .kill2').fadeOut(7000, function (){
 
+
+
+
         });
      }
 });
+setInterval(function() {
+    $('p').fadeOut(500, function() {
+        var $this = $(this);
+        $this.text($this.text() == '(bloodwiper)' ? 'Shift' : '(bloodwiper)');
+        $this.toggleClass();
+        $this.fadeIn(500);
+    });
+}, 2000);
 
 

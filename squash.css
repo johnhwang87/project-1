@@ -19,13 +19,18 @@
   background-image: url("https://s-media-cache-ak0.pinimg.com/236x/3e/02/a3/3e02a342dcfbe9c0d789fac3dc192170.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  color: red;
   font-size: 20px;
-  font-family: courier;
   display: inline-block;
   margin: 2px;
   border-radius: 10px;
   line-height: 70px;
+}
+p {
+  color: red;
+  font-size: 20px;
+  font-family: courier;
+  text-align: center;
+  margin: 2px;
 }
 .bug{
   width: 40px;
@@ -89,6 +94,13 @@
   z-index: 1;
 }
 #counter {
+  color: green;
+  text-align: center;
+  font-size: 50px;
+  z-index: 1;
+  font-family: Courier;
+}
+#scoreboard {
   color: green;
   text-align: center;
   font-size: 50px;
