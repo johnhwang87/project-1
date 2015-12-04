@@ -19,7 +19,14 @@ function startTime() {
         clearInterval(begin);
         clearInterval(gameOver);
         clearInterval(gameOver1);
-        alert("I promise you I am not a virus. Here is your final score you sadist: " + scoreboard);
+        // alert("I promise you I am not a virus. Here is your final score you sadist: " + scoreboard);
+        $(function(){
+            $('#alert').easyModal();
+                $('#alert').trigger('openModal');
+                    autoOpen: true;
+                    overlayOpacity: 0.7;
+                    $('h3').append('<p class="alert">You have squished a score of: </p>'+scoreboard);
+        });
     }
     else {
         counter--;

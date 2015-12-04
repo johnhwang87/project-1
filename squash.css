@@ -145,5 +145,24 @@
   bottom: 10px;
   background-image: url(http://www.misskatecuttables.com/uploads/shopping_cart/7377/large_cute-bug.png);
 }
+#alert {
+  height: 250px;
+  width: 450px;
+  display: none;
+  z-index: 5;
+  background-color: #f27474;
+  opacity: 0.8;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+.alert {
+  font-size: 25px;
+  font-family: Courier;
+}
+h3 {
+  font-size: 40px;
+  font-family: Courier;
+}
 
 
