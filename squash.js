@@ -4,7 +4,8 @@ $('#canvas').hide();
 $('#startscreen').click(function (){
     $($(this)).hide();
     $('#canvas').show('fast', function() {
-//below code starts the game with 80 bugs
+
+
  for(var i=0; i<81; i++) {
            $('#canvas').append("<div class='bug'></div>")
     }
@@ -19,7 +20,6 @@ function startTime() {
         clearInterval(gameOver);
         clearInterval(gameOver1);
         alert("I promise you I am not a virus. Here is your final score you sadist: " + scoreboard);
-        reset();
     }
     else {
         counter--;
@@ -27,7 +27,7 @@ function startTime() {
     document.getElementById('counter').innerHTML = "time:" +counter;
 }
     });
-//below code spawns a bug every .4 seconds
+
 var gameOver = setInterval(function() {
     $('#canvas').append("<div class='bug'></div>")
 }, 400);
@@ -36,9 +36,9 @@ var gameOver1 = setInterval(function () {
     $('#canvas').append("<div class='bug2'></div>")
 }, 5000);
 });
-//below code is for timer and end spawn time
 
-//
+
+
 scoreboard = 0;
 function startScore() {
     document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
@@ -46,11 +46,11 @@ function startScore() {
 var start = setInterval(function(){
     startScore();
     }, 100)
-//
 
 
 
-//below code gets random coordinates
+
+
 function randomFromTo(from, to){
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
@@ -58,20 +58,20 @@ function randomFromTo(from, to){
 setInterval(function (){
     function moveRandom(obj) {
 
-    // get container position and size
+
     var keyboardPos = $('#keyboard').offset();
     var keyboardHeight = $('#keyboard').height();
     var keyboardWidth = $('#keyboard').width();
 
-    // set maximum position
+
     maxY = keyboardPos.top + keyboardHeight;
     maxX = keyboardPos.left + keyboardWidth;
 
-    // set minimum position
+
     minY = keyboardPos.top;
     minX = keyboardPos.left;
 
-    // set new position
+
     newY = randomFromTo(minY, maxY);
     newX = randomFromTo(minX, maxX);
 
@@ -96,7 +96,7 @@ $('.bug2').each(function () {
 
 });
 
-//below codes detect keyboard input
+
 function keyInput1 () {
     $(document).keydown(function(h) {
         if (h.keyCode > 64 && h.keyCode < 91) {
@@ -163,14 +163,14 @@ squash();
 
 keyInput2();
 
-// add a minus sign when butterfly is killed
+
 $(document).keydown(function() {
     if (event.keyCode === 16){
         $('.kill, .kill2').fadeOut(5000, function (){
         });
      }
 });
-// below code sets shift key to flash different words
+
 setInterval(function() {
     $('#shiftkey').fadeOut(500, function() {
         var $this = $(this);
