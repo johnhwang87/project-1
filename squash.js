@@ -45,7 +45,7 @@ var gameOver1 = setInterval(function () {
 });
 
 
-// investigate why var scoreboard doesnt work
+
 scoreboard = 0;
 function startScore() {
     document.getElementById('scoreboard').innerHTML = "score:" +scoreboard;
@@ -103,39 +103,18 @@ $('.bug2').each(function () {
 
 });
 
+
 function keyInput1 () {
     $(document).keydown(function(h) {
         if (h.keyCode > 64 && h.keyCode < 91) {
             var e = String.fromCharCode(h.keyCode).toLowerCase()
             $("#"+e).css("color", "red")
-        };
-
+        }
     });
-    $(document).keydown(function(m) {
-        if(m.keyCode == 186) {
-         $("#semi").css("color", "red")
-    }
-    });
-    $(document).keydown(function(n) {
-        if(n.keyCode == 188) {
-         $("#comma").css("color", "red")
-    }
-    });
-    $(document).keydown(function(o) {
-        if(o.keyCode == 190) {
-         $("#period").css("color", "red")
-    }
-    });
-    $(document).keydown(function(p) {
-        if(p.keyCode == 191) {
-         $("#forward").css("color", "red")
-    }
-    });
-
 }
 keyInput1();
 
-// theres gotta be a more elegant way to add other keys...
+
 function keyInput2 () {
     $(document).keyup(function(j) {
         if (j.keyCode > 64 && j.keyCode < 91) {
@@ -188,32 +167,6 @@ squash();
 
     });
 }
-// do i gotta add squash function to each...?
-// try adding new variables under line 150 and
-// then add squash function
-// maybe move these functions below up under the other keys
-// maybe add all the numbers of the keys in the if statement,
-// and set variables as ; , . /
-    $(document).keyup(function() {
-        if(event.keyCode == 186) {
-         $("#semi").css("color", "gray")
-    }
-    });
-    $(document).keyup(function() {
-        if(event.keyCode == 188) {
-         $("#comma").css("color", "gray")
-    }
-    });
-    $(document).keyup(function() {
-        if(event.keyCode == 190) {
-         $("#period").css("color", "gray")
-    }
-    });
-    $(document).keyup(function() {
-        if(event.keyCode == 191) {
-         $("#forward").css("color", "gray")
-    }
-    });
 
 keyInput2();
 
@@ -233,5 +186,3 @@ setInterval(function() {
         $this.fadeIn(500);
     });
 }, 2000);
-
-
